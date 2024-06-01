@@ -1,0 +1,28 @@
+﻿USE [master]
+GO
+
+/* For security reasons the login is created disabled and with a random password. */
+/****** Object:  Login [HR]    Script Date: 2018/12/01 3:56:38 PM ******/
+CREATE LOGIN [HR] WITH PASSWORD=N'VÔ
+XÒ;Ì®¼xÚÜð*0ñ?æJ¢ÝÝÝ+=h', DEFAULT_DATABASE=[master], DEFAULT_LANGUAGE=[us_english], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF
+GO
+
+ALTER LOGIN [HR] DISABLE
+GO
+
+USE [HR]
+GO
+CREATE USER [HR] FOR LOGIN [HR]
+GO
+USE [HR]
+GO
+ALTER USER [HR] WITH DEFAULT_SCHEMA=[db_datareader]
+GO
+USE [HR]
+GO
+ALTER ROLE [db_datareader] ADD MEMBER [HR]
+GO
+USE [HR]
+GO
+ALTER ROLE [db_datawriter] ADD MEMBER [HR]
+GO

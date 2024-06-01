@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHR" targetNamespace="http://tempuri.org/dsHR.xsd" xmlns:mstns="http://tempuri.org/dsHR.xsd" xmlns="http://tempuri.org/dsHR.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHR" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHR" msprop:Generator_UserDSName="dsHR">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="LogTBL" msprop:Generator_TableClassName="LogTBLDataTable" msprop:Generator_TableVarName="tableLogTBL" msprop:Generator_TablePropName="LogTBL" msprop:Generator_RowDeletingName="LogTBLRowDeleting" msprop:Generator_RowChangingName="LogTBLRowChanging" msprop:Generator_RowEvHandlerName="LogTBLRowChangeEventHandler" msprop:Generator_RowDeletedName="LogTBLRowDeleted" msprop:Generator_UserTableName="LogTBL" msprop:Generator_RowChangedName="LogTBLRowChanged" msprop:Generator_RowEvArgName="LogTBLRowChangeEvent" msprop:Generator_RowClassName="LogTBLRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UserID" msprop:Generator_ColumnVarNameInTable="columnUserID" msprop:Generator_ColumnPropNameInRow="UserID" msprop:Generator_ColumnPropNameInTable="UserIDColumn" msprop:Generator_UserColumnName="UserID" type="xs:int" minOccurs="0" />
+              <xs:element name="CommandType" msprop:Generator_ColumnVarNameInTable="columnCommandType" msprop:Generator_ColumnPropNameInRow="CommandType" msprop:Generator_ColumnPropNameInTable="CommandTypeColumn" msprop:Generator_UserColumnName="CommandType" type="xs:int" minOccurs="0" />
+              <xs:element name="CommandText" msprop:Generator_ColumnVarNameInTable="columnCommandText" msprop:Generator_ColumnPropNameInRow="CommandText" msprop:Generator_ColumnPropNameInTable="CommandTextColumn" msprop:Generator_UserColumnName="CommandText" type="xs:string" minOccurs="0" />
+              <xs:element name="ParValues" msprop:Generator_ColumnVarNameInTable="columnParValues" msprop:Generator_ColumnPropNameInRow="ParValues" msprop:Generator_ColumnPropNameInTable="ParValuesColumn" msprop:Generator_UserColumnName="ParValues" type="xs:string" minOccurs="0" />
+              <xs:element name="CommandDate" msdata:DateTimeMode="Local" msprop:Generator_ColumnVarNameInTable="columnCommandDate" msprop:Generator_ColumnPropNameInRow="CommandDate" msprop:Generator_ColumnPropNameInTable="CommandDateColumn" msprop:Generator_UserColumnName="CommandDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="PageName" msprop:Generator_ColumnVarNameInTable="columnPageName" msprop:Generator_ColumnPropNameInRow="PageName" msprop:Generator_ColumnPropNameInTable="PageNameColumn" msprop:Generator_UserColumnName="PageName" type="xs:string" minOccurs="0" />
+              <xs:element name="UserName" msprop:Generator_ColumnVarNameInTable="columnUserName" msprop:Generator_ColumnPropNameInRow="UserName" msprop:Generator_ColumnPropNameInTable="UserNameColumn" msprop:Generator_UserColumnName="UserName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

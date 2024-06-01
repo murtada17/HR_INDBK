@@ -1,0 +1,143 @@
+﻿
+.menu1 {
+    direction: rtl;
+    text-align: right;
+    padding-right: 5px;
+        width: 170px;
+          border-radius: 10px;
+}
+
+ 
+
+.level1 {
+    list-style: none;
+    font-variant: small-caps;
+    font-size: 17pt;
+    font-weight: bolder;
+    width: 160px;
+    padding: 5px;
+    text-align: center;
+    display: inline-flex;
+      border-right: 1px solid #ffffff;
+    border-radius: 10px;
+}
+
+    .level1 a:active, .level1 a:visited, .level1 a:link {
+        color: white;
+        width: 95%;
+        text-align: right;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .level1 a:hover {
+       color:#000;
+        width: 95%;
+        text-align: right;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .level1:hover {
+        background-color: #808080;
+       color:#000;
+    }
+
+        .level1:hover .menu1 {
+            display: block;
+        }
+
+    .level1 .menu1 {
+        display: none;
+        margin-right: 140px;
+        margin-top: -5px;
+        position: fixed;
+        border-radius: 10px;
+    }
+
+.level2 {
+    margin: 0px;
+    color: #000;
+    padding: 5px;
+    font-size: 15pt;
+    background-color: #FFFFFF;
+    list-style: none;
+    font-weight: bold;
+    min-width: 150px;
+    text-align: right;
+    width: 250px;
+    border-top: 1px solid #ffc107;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 1px solid #674d01;
+}
+
+    .level2:hover {
+        background-color: #808080;
+        color: #000;
+    }
+
+        .level2:hover .level3 {
+            display: block;
+        }
+
+    .level2 a:active, .level2 a:visited {
+        color: #808080;
+        width: 95%;
+        text-align: right;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .level2 a:hover, .level2:hover, .level2 a:link, .level1 a:link {
+        color: #000;
+        text-align: right;
+        /*margin-right: 5px;
+        width: 95%;*/
+        display: inline-block;
+    }
+
+    .level2 .menu1 {
+        display: none;
+        margin-right: 200px;
+        margin-top: -30px;
+        position: absolute;
+        border-top-color:black;
+    }
+
+.level3 {
+    margin: 0px;
+    color: #000;
+    padding: 5px;
+    font-size: 15pt;
+    background-color: #808080;
+    list-style: none;
+    font-weight: bold;
+    min-width: 150px;
+    text-align: right;
+    display: none;
+    width: 200px;
+}
+
+    .level3:hover {
+        background-color: #808080;
+    }
+
+    /* .level3:hover .menu1 {
+            display: block;
+
+        }*/
+
+    .level3 a:active, .level3 a:visited, .level3 a:hover, .level3 a:link {
+        color: #808080;
+        width: 95%;
+        text-align: right;
+        margin-right: auto;
+        display: inline-block;
+    }
+
+.level2:hover .level1 {
+    background-color: #808080;
+    border: 2px solid #808080;
+}
+

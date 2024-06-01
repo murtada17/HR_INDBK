@@ -1,0 +1,412 @@
+﻿.body {
+    /*border: thin inset #C0C0C0;*/
+    margin-left: auto;
+    margin-right: auto;
+    background-position: center top;
+    width: 100%;
+    /*background-image: url('../img/BG.png');
+    background-repeat: repeat-y;*/
+    font-family: 'Sakkal Majalla', Arial;
+    font-size: 15pt;
+    font-weight: bolder;
+    color: #4D4D4D;
+    direction: rtl;
+    background-color: rgba(190, 200, 210, 0.3);
+}
+
+#cont {
+    background-image: url('../img/BG.png');
+    background-repeat: repeat-y;
+    background-position: center top;
+    background-size: 100%;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtnm {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+fieldset {
+    margin: 10px;
+}
+
+.pnl {
+    opacity: inherit;
+}
+
+    .pnl:disabled {
+        opacity: 0.6;
+    }
+
+.logo {
+    background-position: left top;
+    width: 277px;
+    height: 120px;
+    background-image: url('../img/logotext.png' );
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+form {
+    background-color: rgba(190, 200, 210, 0.3); /*rgba(165, 175, 184, 0.8);*/
+    background-repeat: repeat;
+    padding: 10px;
+}
+
+.Header {
+    /*border: 1px groove #E9ECEF;*/
+    /*background-color: rgba(242, 242, 245, 0.8);*/
+    padding: 5px;
+    padding-bottom: 1px;
+    /*width: 98.5%;*/
+    direction: rtl;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtnm {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+        direction: ltr;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+fieldset {
+    margin: 10px;
+}
+
+.content {
+    border: 2px;
+    padding: 5px;
+    min-height: 80px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.container {
+    background: #e3eaef;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.footer {
+    /*border: 1px groove #ECEEF0;*/
+    width: 95%;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: hidden;
+    font-size: 13pt;
+    font-family: inherit;
+    border-radius: 5px;
+}
+
+hr {
+    height: 10px;
+    background-color: rgba(190, 200, 210, 0.3);
+    border-width: 0px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.row {
+    text-align: center;
+    padding: 5px;
+}
+
+.columnleft {
+    display: inline-block;
+    width: 180px;
+    text-align: right;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 0px;
+    vertical-align: middle;
+}
+
+
+
+.columnRight {
+    display: inline-block;
+    width: 240px;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: middle;
+    /*height: 48px;*/
+}
+
+.classz {
+    direction: rtl;
+    font-weight: bolder;
+}
+
+.ddl {
+    width: 98%;
+    font-family: 'Sakkal Majalla', Arial;
+    font-size: 15pt;
+    height: 28px;
+    text-align: right;
+    direction: rtl;
+}
+
+.ddlltr {
+    width: 98%;
+    font-family: 'Sakkal Majalla', Arial;
+    font-size: 15pt;
+    height: 38px;
+    text-align: left;
+    direction: ltr;
+}
+
+.ddl:hover .ddlltr:hover {
+    border-color: lightgoldenrodyellow;
+    border-width: 2px;
+}
+
+.txt {
+    width: 100%;
+    padding: 1px 5px 0px 1px;
+    font-family: 'Sakkal Majalla', Arial;
+    font-size: 15pt;
+    border: 1px solid #07abeb;
+    border-radius: 5px;
+}
+
+.lbl {
+    width: 95%;
+    padding: 1px 5px 0px 1px;
+    font-family: 'Sakkal Majalla', Arial;
+    font-size: 15pt;
+    /* height: 23px; */
+    /* border: 1px solid #f9df47; */
+    border-radius: 5px;
+    background-color: #d2d1d1;
+    text-align: right;
+}
+/*.txtltr {
+    width: 95%;
+    text-align: left;
+    direction: ltr;
+    padding: 1px 2px 1px 2px;
+    font-family: 'Sakkal Majalla', Arial;
+    font-size: 15pt;
+    height: 23px;
+}
+
+    .txt:hover, .txtltr:hover {
+        border-color: lightgoldenrodyellow;
+        border-width: 2px;
+    }*/
+
+.chb {
+    display: block;
+    text-align: right;
+}
+
+.btnm {
+    border: 1px #fff;
+    color: #fff;
+    display: inline-block;
+    font-size: 16pt;
+    font-weight: bolder;
+    text-align: center;
+    padding: 4px 12px 4px 12px;
+    margin: 0px 0px 0px 10px;
+    background-color: #274731;
+    text-transform: capitalize;
+    min-height: 30px;
+    min-width: 80px;
+    font-family: 'Sakkal Majalla', Arial;
+}
+
+    .btnm:hover {
+        background-color: #476751;
+    }
+
+.btnmCancel:hover {
+    background-color: rgb(100, 87, 70);
+}
+
+.btnmCancel {
+    border: 1px #fff;
+    color: #fff;
+    display: inline-block;
+    font-size: 16pt;
+    font-weight: bolder;
+    text-align: center;
+    padding: 4px 12px 4px 12px;
+    margin: 0px 0px 0px 10px;
+    background-color: rgb(80, 67, 50);
+    text-transform: capitalize;
+    min-height: 30px;
+    min-width: 80px;
+    font-family: 'Sakkal Majalla', Arial;
+}
+
+.grid {
+    width: 93%;
+    padding: 10px;
+    text-align: right;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.GridStyle th {
+    background-color: rgb(217, 231, 255);
+    border: none;
+    text-align: left;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 4px;
+    color: Black;
+}
+
+.margin {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.input {
+    display: block;
+}
+
+.filter {
+    border-style: groove;
+    border-width: thin;
+    border-color: inherit;
+}
+
+    .filter .columnRight {
+        border: thin groove #C0C0C0;
+    }
+
+.Error {
+    font-size: larger;
+    background-color: #FF0000;
+    color: white;
+    text-decoration: wavy;
+    border-radius: 5px;
+}
+
+#back-to-top {
+    cursor: pointer;
+    background-color: #1c2958;
+    display: inline-block;
+    height: 40px;
+    width: 40px;
+    color: rgba(242, 242, 245, 0.8);
+    font-size: 17pt;
+    text-align: center;
+    text-decoration: none;
+    line-height: 40px;
+    border-radius: 5px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 17px;
+    height: 17px;
+    background-color: #F0F0F0;
+    border: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #CDCDCD;
+    border: 1px solid #F0F0F0;
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255,0,0,0.4);
+    }
+
+::-webkit-scrollbar-button {
+    background-image: url(../img/controls.png);
+}
+
+::-webkit-scrollbar-button {
+    background-color: #F0F0F0;
+    background-image: url(../img/controls.png);
+    background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #F0F0F0;
+}
+
+/*/scrollbar*/
+

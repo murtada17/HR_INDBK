@@ -1,0 +1,897 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{502A3FDF-7F80-43B4-A058-0DA2612264F9}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TBI_DMS</RootNamespace>
+    <AssemblyName>HR</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SignAssembly>false</SignAssembly>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44380</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
+    <ExcludeGeneratedDebugSymbol>false</ExcludeGeneratedDebugSymbol>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=18.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxControlToolkit.18.1.1\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportAppServer.ReportDefModel, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.ReportSource.13.0.3501\lib\net20\CrystalDecisions.ReportSource.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>packages\CrystalReports.Shared.13.0.3501\lib\net20\CrystalDecisions.Shared.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <HintPath>..\packages\CrystalDecisions.Web.1.0.1\lib\CrystalDecisions.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net40-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CSS\Images\animated-overlay.gif" />
+    <Content Include="CSS\Images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="CSS\Images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="CSS\Images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="CSS\Images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="CSS\Images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="CSS\Images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="CSS\Images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="CSS\Images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="CSS\Images\ui-icons_222222_256x240.png" />
+    <Content Include="CSS\Images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="CSS\Images\ui-icons_454545_256x240.png" />
+    <Content Include="CSS\Images\ui-icons_888888_256x240.png" />
+    <Content Include="CSS\Images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="CSS\jquery.ui.css" />
+    <Content Include="CSS\jquery.ui.dialog.css" />
+    <Content Include="CSS\MenuOther.css" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidArabicKufi.css" />
+    <Content Include="CSS\Main.css" />
+    <Content Include="CSS\Menu.css" />
+    <Content Include="Fonts\Revalia\Revalia.css" />
+    <Content Include="Global.asax" />
+    <Content Include="img\Visualpharm-Must-Have-Add.ico" />
+    <Content Include="Pages\Additional\BranchAdEd.aspx" />
+    <Content Include="Pages\Additional\DepartmentAdEd.aspx" />
+    <Content Include="Pages\Additional\SectionAdEd.aspx" />
+    <Content Include="Pages\AdminOrder\AddOrder.aspx" />
+    <Content Include="Pages\AdminOrder\ShowEmpOrder.aspx" />
+    <Content Include="Pages\Courses\Courses.aspx" />
+    <Content Include="Pages\Courses\EmpCourses.aspx" />
+    <Content Include="Pages\Email\EmailLists.aspx" />
+    <Content Include="Pages\Email\Emails.aspx" />
+    <Content Include="Pages\Email\MatchEmails.aspx" />
+    <Content Include="Pages\Employee\Attendance.aspx" />
+    <Content Include="Pages\Employee\EmpBlock.aspx" />
+    <Content Include="Pages\Employee\Employee.aspx" />
+    <Content Include="Pages\Employee\EmpNotes.aspx" />
+    <Content Include="Pages\Employee\EmpResign.aspx" />
+    <Content Include="Pages\Employee\EmpStart.aspx" />
+    <Content Include="Pages\Employee\EmpTransfare.aspx" />
+    <Content Include="Pages\Employee\EndTrans.aspx" />
+    <Content Include="Pages\Employee\IdNo.aspx" />
+    <Content Include="Pages\Error\Error.aspx" />
+    <Content Include="Pages\ExtNo\ExtNo.aspx" />
+    <Content Include="Pages\Salaries\AllowAdEd.aspx" />
+    <Content Include="Pages\Salaries\EmpSalary.aspx" />
+    <Content Include="Pages\Salaries\Allowance.aspx" />
+    <Content Include="Pages\Employee\EditEmp.aspx" />
+    <Content Include="Pages\Employee\NewEmp.aspx" />
+    <Content Include="Pages\Salaries\Payments.aspx" />
+    <Content Include="Pages\User\UserPages.aspx" />
+    <Content Include="Pages\Vications\EmpVication.aspx" />
+    <Content Include="Pages\Vications\VicationsTypes.aspx" />
+    <Content Include="Reports\rptTester.aspx" />
+    <Content Include="Reports\ReportsRDLC.aspx" />
+    <Content Include="Reports\ReportsRPT.aspx" />
+    <Content Include="Script\jquery-1.9.1.js" />
+    <Content Include="Script\jquery-ui.js" />
+    <Content Include="Script\WS1.asmx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Additional\BranchAdEd.aspx.cs">
+      <DependentUpon>BranchAdEd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Additional\BranchAdEd.aspx.designer.cs">
+      <DependentUpon>BranchAdEd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Additional\DepartmentAdEd.aspx.cs">
+      <DependentUpon>DepartmentAdEd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Additional\DepartmentAdEd.aspx.designer.cs">
+      <DependentUpon>DepartmentAdEd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Additional\SectionAdEd.aspx.cs">
+      <DependentUpon>SectionAdEd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Additional\SectionAdEd.aspx.designer.cs">
+      <DependentUpon>SectionAdEd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminOrder\AddOrder.aspx.cs">
+      <DependentUpon>AddOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminOrder\AddOrder.aspx.designer.cs">
+      <DependentUpon>AddOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminOrder\ShowEmpOrder.aspx.cs">
+      <DependentUpon>ShowEmpOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminOrder\ShowEmpOrder.aspx.designer.cs">
+      <DependentUpon>ShowEmpOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Courses\Courses.aspx.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Courses\Courses.aspx.designer.cs">
+      <DependentUpon>Courses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Courses\EmpCourses.aspx.cs">
+      <DependentUpon>EmpCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Courses\EmpCourses.aspx.designer.cs">
+      <DependentUpon>EmpCourses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Email\EmailLists.aspx.cs">
+      <DependentUpon>EmailLists.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Email\EmailLists.aspx.designer.cs">
+      <DependentUpon>EmailLists.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Email\Emails.aspx.cs">
+      <DependentUpon>Emails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Email\Emails.aspx.designer.cs">
+      <DependentUpon>Emails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Email\MatchEmails.aspx.cs">
+      <DependentUpon>MatchEmails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Email\MatchEmails.aspx.designer.cs">
+      <DependentUpon>MatchEmails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\Attendance.aspx.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\Attendance.aspx.designer.cs">
+      <DependentUpon>Attendance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpBlock.aspx.cs">
+      <DependentUpon>EmpBlock.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpBlock.aspx.designer.cs">
+      <DependentUpon>EmpBlock.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\Employee.aspx.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\Employee.aspx.designer.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpNotes.aspx.cs">
+      <DependentUpon>EmpNotes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpNotes.aspx.designer.cs">
+      <DependentUpon>EmpNotes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpResign.aspx.cs">
+      <DependentUpon>EmpResign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpResign.aspx.designer.cs">
+      <DependentUpon>EmpResign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpStart.aspx.cs">
+      <DependentUpon>EmpStart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpStart.aspx.designer.cs">
+      <DependentUpon>EmpStart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpTransfare.aspx.cs">
+      <DependentUpon>EmpTransfare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\EmpTransfare.aspx.designer.cs">
+      <DependentUpon>EmpTransfare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\EndTrans.aspx.cs">
+      <DependentUpon>EndTrans.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\EndTrans.aspx.designer.cs">
+      <DependentUpon>EndTrans.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\IdNo.aspx.cs">
+      <DependentUpon>IdNo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\IdNo.aspx.designer.cs">
+      <DependentUpon>IdNo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Error\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Error\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ExtNo\ExtNo.aspx.cs">
+      <DependentUpon>ExtNo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ExtNo\ExtNo.aspx.designer.cs">
+      <DependentUpon>ExtNo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OpenDoc.ashx.cs">
+      <DependentUpon>OpenDoc.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salaries\AllowAdEd.aspx.cs">
+      <DependentUpon>AllowAdEd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salaries\AllowAdEd.aspx.designer.cs">
+      <DependentUpon>AllowAdEd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salaries\EmpSalary.aspx.cs">
+      <DependentUpon>EmpSalary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salaries\EmpSalary.aspx.designer.cs">
+      <DependentUpon>EmpSalary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salaries\Allowance.aspx.cs">
+      <DependentUpon>Allowance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salaries\Allowance.aspx.designer.cs">
+      <DependentUpon>Allowance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\EditEmp.aspx.cs">
+      <DependentUpon>EditEmp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\EditEmp.aspx.designer.cs">
+      <DependentUpon>EditEmp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Employee\NewEmp.aspx.cs">
+      <DependentUpon>NewEmp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Employee\NewEmp.aspx.designer.cs">
+      <DependentUpon>NewEmp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Salaries\Payments.aspx.cs">
+      <DependentUpon>Payments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Salaries\Payments.aspx.designer.cs">
+      <DependentUpon>Payments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\CreateUser.aspx.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\CreateUser.aspx.designer.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\ResetPass.aspx.cs">
+      <DependentUpon>ResetPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\ResetPass.aspx.designer.cs">
+      <DependentUpon>ResetPass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\UserPages.aspx.cs">
+      <DependentUpon>UserPages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\UserPages.aspx.designer.cs">
+      <DependentUpon>UserPages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Vications\EmpVication.aspx.cs">
+      <DependentUpon>EmpVication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Vications\EmpVication.aspx.designer.cs">
+      <DependentUpon>EmpVication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Vications\VicationsTypes.aspx.cs">
+      <DependentUpon>VicationsTypes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Vications\VicationsTypes.aspx.designer.cs">
+      <DependentUpon>VicationsTypes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Pages\MDirMaster.Master.cs">
+      <DependentUpon>MDirMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\MDirMaster.Master.designer.cs">
+      <DependentUpon>MDirMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\User\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\User\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptAttenSkip.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAttenSkip.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\OverTime.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OverTime.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptAtten.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAtten.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptAttendanceNON.cs">
+      <DependentUpon>rptAttendanceNON.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptAttendance+15.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAttendance+15.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptAttendance.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptAttendance.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmailLists1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEmailLists.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmailsEN.cs">
+      <DependentUpon>rptEmailsEN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmpLocDate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEmpLocDate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmpNotes.cs">
+      <DependentUpon>rptEmpNotes.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptLateEmp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptLateEmp.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptMaturityDate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMaturityDate.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptMonthlyPayroll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMonthlyPayroll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptMonthlyPayrollDetails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptMonthlyPayrollDetails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptUsersToDisable.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptUsersToDisable.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptVacationFDN.cs">
+      <DependentUpon>rptVacationFDN.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptExtNo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptExtNo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptResignVacation.cs">
+      <DependentUpon>rptResignVacation.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmpHistory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEmpHistory.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmails.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEmails.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmpResign.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEmpResign.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmpVacation1.cs">
+      <DependentUpon>rptEmpVacation.rpt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptOtherEmpHistory.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptOtherEmpHistory.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptTempTransEmp.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTempTransEmp.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptVacation%282,4,9,10,11%29.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptVacation%282,4,9,10,11%29.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\test.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>test.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\rptTester.aspx.cs">
+      <DependentUpon>rptTester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\rptTester.aspx.designer.cs">
+      <DependentUpon>rptTester.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptTransfare.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptTransfare.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptVacation.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptVacation.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\Transfare_2.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Transfare_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptVacationAddition.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptVacationAddition.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportsRDLC.aspx.cs">
+      <DependentUpon>ReportsRDLC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportsRDLC.aspx.designer.cs">
+      <DependentUpon>ReportsRDLC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportsRPT.aspx.cs">
+      <DependentUpon>ReportsRPT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportsRPT.aspx.designer.cs">
+      <DependentUpon>ReportsRPT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rptEmployee.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptEmployee.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\ReportSource\rpt EmpNotes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpt EmpNotes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Script\WS.asmx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Script\WS1.asmx.cs">
+      <DependentUpon>WS1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\controls.png" />
+    <Content Include="img\modal-gloss.png" />
+    <Content Include="Pages\Default.aspx" />
+    <Content Include="Pages\User\ChangePassword.aspx" />
+    <Content Include="Pages\User\CreateUser.aspx" />
+    <Content Include="Pages\User\ResetPass.aspx" />
+    <Content Include="Script\JQuery\jquery-1.10.1.min.js" />
+    <Content Include="Script\JQuery\jquery-1.4.4.min.js" />
+    <Content Include="Pages\MDirMaster.Master" />
+    <Content Include="Pages\User\Login.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptAttenSkip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAttenSkip.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\OverTime.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OverTime.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptAtten.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAtten.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptAttendanceNON.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAttendanceNON.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptAttendance+15.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAttendance+15.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptAttendance.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptAttendance.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptEmailLists.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmailLists1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptEmailsEN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmailsEN.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptEmpLocDate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmpLocDate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptEmpNotes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmpNotes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptLateEmp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptLateEmp.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptMaturityDate.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMaturityDate.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptMonthlyPayroll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMonthlyPayroll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptMonthlyPayrollDetails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptMonthlyPayrollDetails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptUsersToDisable.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptUsersToDisable.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptVacationFDN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptVacationFDN.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptExtNo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptExtNo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptResignVacation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptResignVacation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\Log.rdlc" />
+    <EmbeddedResource Include="Reports\ReportSource\rdlcYearly.rdlc" />
+    <EmbeddedResource Include="Reports\ReportSource\rptEmpHistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmpHistory.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptEmails.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmails.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptEmpResign.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmpResign.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptEmpVacation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmpVacation1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptOtherEmpHistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptOtherEmpHistory.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptTempTransEmp.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTempTransEmp.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptTransfare.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptTransfare.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptVacation%282,4,9,10,11%29.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptVacation%282,4,9,10,11%29.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptVacation.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptVacation.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptEmployee.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptEmployee.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\test.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>test.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\Transfare_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Transfare_2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rptVacationAddition.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptVacationAddition.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ReportSource\rpt EmpNotes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpt EmpNotes.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Script\WS.asmx.resx">
+      <DependentUpon>WS.asmx.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Reports\ExportFiles\" />
+    <Folder Include="Script\Classes\" />
+    <Folder Include="Script\Services\" />
+    <Folder Include="Temp\" />
+    <Folder Include="UserImages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Fonts\Revalia\OXo2RNH-UREPXdDJgNBXGQ.woff" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidKufi-Bold.eot" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidKufi-Bold.ttf" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidKufi-Bold.woff" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidKufi-Bold.woff2" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidKufi-Regular.eot" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidKufi-Regular.ttf" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidKufi-Regular.woff" />
+    <Content Include="Fonts\Droid Arabic Kufi\DroidKufi-Regular.woff2" />
+    <Content Include="HRDataSet.xsc">
+      <DependentUpon>HRDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataBase\DataBase.rar" />
+    <None Include="HRDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="HRDataSet.xss">
+      <DependentUpon>HRDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Pages\OpenDoc.ashx" />
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\10.1.50.25.pubxml" />
+    <None Include="Properties\PublishProfiles\192.168.0.49_HR.pubxml" />
+    <Content Include="Reports\dsHR.xsc">
+      <DependentUpon>dsHR.xsd</DependentUpon>
+    </Content>
+    <None Include="Reports\dsHR.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
+    <Content Include="Reports\dsHR.xss">
+      <DependentUpon>dsHR.xsd</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4615</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:4615/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

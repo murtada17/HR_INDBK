@@ -1,0 +1,334 @@
+﻿<%@ Page Title="تحديث بيانات الموظفين" Language="C#" MasterPageFile="~/Pages/TBIMaster.Master" AutoEventWireup="true" CodeBehind="updateEmpTable.aspx.cs" Inherits="HR_Salaries.Pages.Employee.updateEmpTable" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script language="javascript" type="text/javascript">
+
+        window.onload = function () {
+            readonly
+        }
+        function readonly() {
+
+            btnSubmit.Attributes.Add("target", "_blank")
+        }
+        $(document).ready(function () {
+            $(".link").on("click", function (event) {
+                event.preventDefault();
+                Confirm($(this).prop('id'));
+            });
+        });
+
+        function Confirm(ID) {
+            var confirm_value = document.createElement("INPUT");
+            confirm_value.type = "hidden";
+            confirm_value.name = "confirm_value";
+            if (confirm("سيتم حذف الموظف، هل انت متأكد؟")) {
+                confirm_value.value = "Yes";
+                var par = "{'rid':'" + ID + "'}";
+
+
+                $.ajax({
+                    type: "POST",
+                    url: "../Employee/updateEmpTable.aspx/OnConfirm",
+                    data: par,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+                        if (data.d == 1) {
+                        window.location.reload();
+                        $(this).dialog("close");
+                    }
+                    else {
+                        alert(data.d);
+                    }
+                },
+                    failure: function (response) {
+                        alert(response.d);
+                    },
+                error: function (response) {
+                    alert(response.d);
+                }
+            });
+
+        } else {
+                 confirm_value.value = "No";
+        }
+        document.forms[0].appendChild(confirm_value);
+        }
+        function OnSuccess(result) {
+            alert(result);
+        }
+        function OnFalure(error) {
+            alert(error);
+        }
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <div class="row" style="text-align: center">
+        <asp:Label ID="lblMessage" runat="server" CssClass="Error" Text=""></asp:Label><asp:HiddenField ID="hfEmpID" Value="0" runat="server" />
+        <br />
+
+        <div class="row" id="divddl"  runat="server" >
+        <div class="columnleft">
+            <asp:Label ID="Label10" runat="server" Text="شهري الحافز : "></asp:Label>
+        </div>
+        <div class="columnRight">
+            <asp:DropDownList ID="ddlRateMonth" runat="server" CssClass="ddl" AutoPostBack="True">
+            </asp:DropDownList>
+
+        </div>
+
+        
+    </div>
+
+        <br />
+        <br />
+        <div class="row">
+        <asp:Button ID="Submit" runat="Server" Text="تحديث البيانات" CssClass="btn" OnClick="Submit_Click" UseSubmitBehavior="false" onkeypress="return event.keyCode != 13;" />
+        <asp:Button ID="notesUpdate" runat="Server" Text="تحديث الملاحظات" CssClass="btn" OnClick="notesUpdate_Click" UseSubmitBehavior="false" onkeypress="return event.keyCode != 13;"/>
+        <asp:Button ID="addEmployee" runat="Server" Text="تعديل/حذف موظف" CssClass="btn" OnClick="addEmployee_Click" UseSubmitBehavior="false" onkeypress="return event.keyCode != 13;"/>
+        <asp:Button ID="NewEmployee" runat="Server" Text="اضافة موظف" CssClass="btn" OnClick="NewEmployee_Click" UseSubmitBehavior="false" onkeypress="return event.keyCode != 13;"/>
+        </div>
+
+
+    </div>
+        <div class="row" style="text-align: center; display:none" id="divName" runat="server">
+            
+
+
+
+                <asp:Label ID="Label9" runat="server" Text="اسم الموظف"></asp:Label>
+            <br />
+            <asp:TextBox ID="txtNameSearch" runat="server" CssClass="txt" Width="200px"></asp:TextBox>
+        </div>
+     <div class="row" style="text-align: center; display:none" id="divSearch" runat="server">
+     <asp:Button ID="btnSearch" runat="Server" Text="بحث" CssClass="btn" OnClick="btnSearch_Click" />
+         </div>
+    <div style="overflow: auto; white-space: nowrap;" align="center">
+
+        <div class="row" style="text-align: center; width: 98.5%; overflow-x: auto; white-space: nowrap;" dir="rtl">
+
+            <asp:GridView ID="GridView1" runat="server" DataGridViewTriState="True" BackColor="White" CssClass="table"
+                AutoSizeRowsMode="false" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1"
+                GridLines="None" dir="rtl" AutoGenerateColumns="False"
+                OnPageIndexChanged="GridView1_PageIndexChanged" OnPageIndexChanging="GridView1_PageIndexChanging"
+                AllowSorting="true" AllowPaging="true" PageSize="15" DataKeyNames="EmpID" AutoGenerateDeleteButton="false"
+                AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView1_SelectedIndexChanged"
+                OnSelectedIndexChanging="GridView1_SelectedIndexChanging">
+                <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" Width="50px" />
+
+                <PagerSettings Mode="NumericFirstLast" />
+                <PagerStyle ForeColor="#000066" HorizontalAlign="Center" BackColor="#C6C3C6" />
+                <RowStyle ForeColor="#000066" />
+                <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#33276A" />
+
+            </asp:GridView>
+            <br />
+        </div>
+
+        <br />
+    </div>
+     <div style="overflow: auto; white-space: nowrap;" align="center">
+
+        <div class="row" style="text-align: center; width: 98.5%; overflow-x: auto; white-space: nowrap;" dir="rtl">
+
+            <asp:GridView ID="GridView4" runat="server" DataGridViewTriState="True" BackColor="White" CssClass="table"
+                AutoSizeRowsMode="false" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1"
+                GridLines="None" dir="rtl" AutoGenerateColumns="False"
+                OnPageIndexChanged="GridView4_PageIndexChanged" OnPageIndexChanging="GridView4_PageIndexChanging"
+                AllowSorting="true" AllowPaging="true" PageSize="15" DataKeyNames="EmpID" AutoGenerateDeleteButton="false"
+                AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView4_SelectedIndexChanged"
+                OnSelectedIndexChanging="GridView4_SelectedIndexChanging">
+                <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" Width="50px" />
+
+                <PagerSettings Mode="NumericFirstLast" />
+                <PagerStyle ForeColor="#000066" HorizontalAlign="Center" BackColor="#C6C3C6" />
+                <RowStyle ForeColor="#000066" />
+                <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#33276A" />
+
+            </asp:GridView>
+            <br />
+        </div>
+
+        <br />
+    </div>
+      <div style="overflow: auto; white-space: nowrap;" align="center">
+
+        <div class="row" style="text-align: center; width: 98.5%; overflow-x: auto; white-space: nowrap;" dir="rtl">
+
+            <asp:GridView ID="GridView2" runat="server" DataGridViewTriState="True" BackColor="White" CssClass="table"
+                AutoSizeRowsMode="false" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1"
+                GridLines="None" dir="rtl" AutoGenerateColumns="False"
+                OnPageIndexChanged="GridView2_PageIndexChanged" OnPageIndexChanging="GridView2_PageIndexChanging"
+                AllowSorting="true" AllowPaging="true" PageSize="15" DataKeyNames="EmpID">
+                <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" Width="50px" />
+
+                <PagerSettings Mode="NumericFirstLast" />
+                <PagerStyle ForeColor="#000066" HorizontalAlign="Center" BackColor="#C6C3C6" />
+                <RowStyle ForeColor="#000066" />
+                <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#33276A" />
+
+            </asp:GridView>
+            <br />
+        </div>
+
+        <br />
+    </div>
+
+
+     <div style="overflow: auto; white-space: nowrap;" align="center">
+
+        <div class="row" style="text-align: center; width: 98.5%; overflow-x: auto; white-space: nowrap;" dir="rtl">
+
+            <asp:GridView ID="GridView3" runat="server" DataGridViewTriState="True" BackColor="White" CssClass="table"
+                AutoSizeRowsMode="false" BorderColor="White" BorderStyle="Ridge" BorderWidth="2px" CellPadding="3" CellSpacing="1"
+                GridLines="None" dir="rtl" AutoGenerateColumns="False"
+                OnPageIndexChanged="GridView3_PageIndexChanged" OnPageIndexChanging="GridView3_PageIndexChanging"
+                AllowSorting="true" AllowPaging="true" PageSize="15" DataKeyNames="EmpID" AutoGenerateDeleteButton="false"
+                AutoGenerateSelectButton="True" OnSelectedIndexChanged="GridView3_SelectedIndexChanged"
+                OnSelectedIndexChanging="GridView3_SelectedIndexChanging">
+                <FooterStyle BackColor="#C6C3C6" ForeColor="Black" />
+                <HeaderStyle BackColor="#4A3C8C" Font-Bold="True" ForeColor="#E7E7FF" Width="50px" />
+
+                <PagerSettings Mode="NumericFirstLast" />
+                <PagerStyle ForeColor="#000066" HorizontalAlign="Center" BackColor="#C6C3C6" />
+                <RowStyle ForeColor="#000066" />
+                <RowStyle BackColor="#DEDFDE" ForeColor="Black" />
+                <SelectedRowStyle BackColor="#9471DE" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#594B9C" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#33276A" />
+
+            </asp:GridView>
+            <br />
+        </div>
+
+        <br />
+    </div>
+
+    <asp:Panel ID="AddForm" runat="server" DefaultButton="Add" BorderColor="#333333" Visible="false">
+        <div class="row">
+            <div class="columnleft">
+                <asp:Label ID="Label3" runat="server" Text="اسم الموظف : "></asp:Label>
+            </div>
+            <div class="columnRight">
+                <asp:DropDownList ID="ddlEmployees" runat="server" CssClass="ddl">
+                </asp:DropDownList>
+
+            </div>
+            <div class="columnleft">
+                <asp:Label ID="Label4" runat="server" Text="الفرع : "></asp:Label>
+            </div>
+
+            <div class="columnRight">
+                <asp:DropDownList ID="ddlIBranch" runat="server" CssClass="ddl">
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columnleft">
+                <asp:Label ID="Label1" runat="server" Text="القسم : "></asp:Label>
+            </div>
+            <div class="columnRight">
+                <asp:DropDownList ID="ddlIDepartment" runat="server" CssClass="ddl">
+                </asp:DropDownList>
+
+            </div>
+
+
+            <div class="columnleft">
+                <asp:Label ID="Label2" runat="server" Text="الشعبة : "></asp:Label>
+            </div>
+            <div class="columnRight">
+                <asp:DropDownList ID="ddlSection" runat="server" CssClass="ddl">
+                </asp:DropDownList>
+
+            </div>
+        </div>
+        <div class="row">
+            <asp:Button ID="Add" runat="Server" Text="اضافة" CssClass="btn" OnClick="Add_Click" />
+            <asp:Button ID="BtnCancel" runat="server" Text="إلغاء" CssClass="btnCancel" OnClick="BtnCancel_Click" CausesValidation="False" UseSubmitBehavior="False" />
+        </div>
+    </asp:Panel>
+
+
+    <asp:Panel ID="newForm" runat="server" DefaultButton="Add" BorderColor="#333333" Visible="false">
+        <div class="row">
+            <div class="columnleft">
+                <asp:Label ID="Label5" runat="server" Text="اسم الموظف : "></asp:Label>
+            </div>
+            <div class="columnRight">
+                <asp:DropDownList ID="ddlEmployeesActive0" runat="server" CssClass="ddl" AutoPostBack="true">
+                </asp:DropDownList>
+
+            </div>
+            <div class="columnleft">
+                <asp:Label ID="Label6" runat="server" Text="الفرع : "></asp:Label>
+            </div>
+
+            <div class="columnRight">
+                <asp:DropDownList ID="ddlNewBranch" runat="server" CssClass="ddl" AutoPostBack="true">
+                </asp:DropDownList>
+            </div>
+        </div>
+        <div class="row">
+            <div class="columnleft">
+                <asp:Label ID="Label7" runat="server" Text="القسم : "></asp:Label>
+            </div>
+            <div class="columnRight">
+                <asp:DropDownList ID="ddlNewDep" runat="server" CssClass="ddl" AutoPostBack="true">
+                </asp:DropDownList>
+
+            </div>
+
+
+            <div class="columnleft">
+                <asp:Label ID="Label8" runat="server" Text="الشعبة : "></asp:Label>
+            </div>
+            <div class="columnRight">
+                <asp:DropDownList ID="ddlNewSec" runat="server" CssClass="ddl" AutoPostBack="true">
+                </asp:DropDownList>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="columnleft">
+                <asp:Label ID="Label12" runat="server" Text="ملاحظات : "></asp:Label>
+
+            </div>
+            <div class="columnRight">
+
+                <asp:TextBox ID="txtNotes" runat="server" Width="283%" TextMode="MultiLine" Height="56px" CssClass="txt" MaxLength="250"></asp:TextBox>
+
+            </div>
+            <div class="columnleft">
+            </div>
+            <div class="columnRight">
+            </div>
+
+        </div>
+        <div class="row">
+            <asp:Button ID="btnNewEmp" runat="Server" Text="اضافة" CssClass="btn" OnClick="btnNewEmp_Click" />
+            <asp:Button ID="btnNewCancel" runat="server" Text="إلغاء" CssClass="btnCancel" OnClick="BtnCancel_Click" CausesValidation="False" UseSubmitBehavior="False" />
+        </div>
+    </asp:Panel>
+</asp:Content>
+

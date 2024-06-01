@@ -1,0 +1,129 @@
+﻿
+.menu1 {
+    direction: rtl;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.level1 {
+    list-style: none;
+    font-variant: small-caps;
+    font-size: 17pt;
+    font-weight: bolder;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    display: inline-flex;
+}
+
+    .level1 a:active, .level1 a:visited, .level1 a:link {
+        color: gray;
+        width: 95%;
+        text-align: right;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .level1 a:hover {
+        color: #FFFFFF;
+        width: 95%;
+        text-align: right;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .level1:hover {
+        background-color: #5f6b89;
+        color: #FFFFFF;
+    }
+
+        .level1:hover .menu1 {
+            display: block;
+        }
+
+    .level1 .menu1 {
+        display: none;
+        margin-right: -110px;
+        margin-top: 30px;
+        position: absolute;
+    }
+
+.level2 {
+    margin: 0px;
+    color: #FFFFFF;
+    padding: 5px;
+    font-size: 15pt;
+    background-color: #c7a67b;
+    list-style: none;
+    font-weight: bold;
+    min-width: 150px;
+    text-align: right;
+    width: 200px;
+}
+
+    .level2:hover {
+        background-color: #5f6b89;
+    }
+
+        .level2:hover .level3 {
+            display: block;
+        }
+
+    .level2 a:active, .level2 a:visited {
+        color: #FFF;
+        width: 95%;
+        text-align: right;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    .level2 a:hover, .level2:hover, .level2 a:link {
+        color: #FFFFFF;
+        text-align: right;
+        /*margin-right: 5px;
+        width: 95%;*/
+        display: inline-block;
+    }
+
+    .level2 .menu1 {
+        display: none;
+        margin-right: 200px;
+        margin-top: -30px;
+        position: absolute;
+    }
+
+.level3 {
+    margin: 0px;
+    color: #FFFFFF;
+    padding: 5px;
+    font-size: 15pt;
+    background-color: #c7a67b;
+    list-style: none;
+    font-weight: bold;
+    min-width: 150px;
+    text-align: right;
+    display: none;
+    width: 200px;
+}
+
+    .level3:hover {
+        background-color: #5f6b89;
+    }
+
+    /* .level3:hover .menu1 {
+            display: block;
+
+        }*/
+
+    .level3 a:active, .level3 a:visited, .level3 a:hover, .level3 a:link {
+        color: #DDDDDD;
+        width: 95%;
+        text-align: right;
+        margin-right: auto;
+        display: inline-block;
+    }
+
+.level2:hover .level1 {
+    background-color: #DDDDDD;
+    border: 2px solid #808080;
+}
